@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  runner:
+    # build: . # build your own image after cloning this repo
+    # or use the container published on ghcr
+    # image: ghcr.io/onvox/actions-runner-ubuntu2404:<version_tag>
+    restart: unless-stopped
+    deploy:
+      mode: replicated
+      replicas: 1 # number of runners
+      placement:
+        constraints:
+          - node.role == worker
+    environment:
+      GITHUB_ORG: "MyGitHubOrganization"  # GitHub Organization name
+      GITHUB_TOKEN: ghp_superSecretKey    # GitHub token with admin:org
+
