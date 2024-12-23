@@ -18,6 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     git \
     jq \
     libffi-dev \
+    libicu-dev \
     libssl-dev \
     lsb-release \
     openssh-client \
